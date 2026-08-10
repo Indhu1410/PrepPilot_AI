@@ -1,0 +1,98 @@
+{% extends "layout.html" %}
+{% block title %}Dashboard - PrepPilot AI{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <div>
+        <h2>Welcome back, {{ session['fullname'].split(' ')[0] }} 👋</h2>
+        <p class="text-muted-light">Here's your interview preparation overview</p>
+    </div>
+    <a href="{{ url_for('courses') }}" class="btn-gradient"><i class="bi bi-play-fill"></i> Start New Interview</a>
+</div>
+
+<div class="stats-grid">
+    <div class="glass-card stat-card">
+        <div class="stat-icon bg-purple"><i class="bi bi-check2-circle"></i></div>
+        <div>
+            <h3>{{ stats.completed }}</h3>
+            <p>Completed Interviews</p>
+        </div>
+    </div>
+    <div class="glass-card stat-card">
+        <div class="stat-icon bg-blue"><i class="bi bi-graph-up-arrow"></i></div>
+        <div>
+            <h3>{{ stats.avg_score }}%</h3>
+            <p>Average Score</p>
+        </div>
+    </div>
+    <div class="glass-card stat-card">
+        <div class="stat-icon bg-green"><i class="bi bi-hand-thumbs-up-fill"></i></div>
+        <div>
+            <h3 class="small-list">{{ stats.strong_topics | join(', ') }}</h3>
+            <p>Strong Topics</p>
+        </div>
+    </div>
+    <div class="glass-card stat-card">
+        <div class="stat-icon bg-orange"><i class="bi bi-exclamation-triangle-fill"></i></div>
+        <div>
+            <h3 class="small-list">{{ stats.weak_topics | join(', ') }}</h3>
+            <p>Weak Topics</p>
+        </div>
+    </div>
+</div>
+
+<div class="dashboard-columns">
+    <div class="glass-card panel">
+        <h4><i class="bi bi-mortarboard-fill"></i> Continue Learning</h4>
+        <div class="mini-courses">
+            {% for key, topic in topics.items() %}
+            <a href="{{ url_for('interview', topic=key) }}" class="mini-course-card">
+                <i class="bi {{ topic.icon }}" style="color: {{ topic.color }};"></i>
+                <span>{{ topic.name }}</span>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="glass-card panel">
+        <h4><i class="bi bi-graph-up"></i> Progress Overview</h4>
+        <canvas id="progressChart" height="180"></canvas>
+    </div>
+</div>
+
+<div class="glass-card panel">
+    <h4><i class="bi bi-clock-history"></i> Recent Activity</h4>
+    {% if stats.recent_activity %}
+    <div class="table-responsive">
+        <table class="table table-dark-glass">
+            <thead>
+                <tr><th>Topic</th><th>Score</th><th>Date</th></tr>
+            </thead>
+            <tbody>
+                {% for act in stats.recent_activity %}
+                <tr>
+                    <td>{{ act.topic | capitalize }}</td>
+                    <td><span class="badge-score {{ 'good' if act.average_score >= 60 else 'weak' }}">{{ act.average_score }}%</span></td>
+                    <td>{{ act.created_at.split('T')[0] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <p class="text-muted-light">No interviews yet. Start your first one from the Courses page!</p>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+<script>
+    const activityData = {{ stats.recent_activity | map(attribute='average_score') | list | tojson }};
+    const activityLabels = {{ stats.recent_activity | map(attribute='topic') | list | tojson }};
+</script>
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+{% endblock %}

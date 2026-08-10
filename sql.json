@@ -1,0 +1,12 @@
+[
+  {"id": 1, "question": "What is the difference between INNER JOIN and LEFT JOIN?", "answer": "INNER JOIN returns only matching rows from both tables, while LEFT JOIN returns all rows from the left table and matched rows from the right table, with NULLs where there is no match."},
+  {"id": 2, "question": "What is normalization and why is it used?", "answer": "Normalization is the process of organizing data to reduce redundancy and improve data integrity by dividing large tables into smaller related tables using rules called normal forms."},
+  {"id": 3, "question": "What is the difference between WHERE and HAVING clauses?", "answer": "WHERE filters rows before aggregation, while HAVING filters groups after the GROUP BY clause has been applied."},
+  {"id": 4, "question": "What is a primary key and a foreign key?", "answer": "A primary key uniquely identifies each record in a table, while a foreign key is a column that references the primary key of another table to establish a relationship."},
+  {"id": 5, "question": "What is an index in SQL and why is it useful?", "answer": "An index is a database structure that improves the speed of data retrieval operations on a table at the cost of additional storage and slower writes."},
+  {"id": 6, "question": "Explain the difference between DELETE, TRUNCATE, and DROP.", "answer": "DELETE removes specific rows and can be rolled back, TRUNCATE removes all rows quickly without logging individual deletions, and DROP removes the entire table structure."},
+  {"id": 7, "question": "What is a subquery?", "answer": "A subquery is a query nested inside another query, used to return data that will be used in the main query's condition or as a derived table."},
+  {"id": 8, "question": "What are ACID properties in databases?", "answer": "ACID stands for Atomicity, Consistency, Isolation, and Durability, which are properties that guarantee reliable processing of database transactions."},
+  {"id": 9, "question": "What is the difference between UNION and UNION ALL?", "answer": "UNION combines results from two queries and removes duplicates, while UNION ALL combines results including duplicates, making it faster."},
+  {"id": 10, "question": "What are aggregate functions in SQL? Give examples.", "answer": "Aggregate functions perform a calculation on a set of values and return a single value, examples include COUNT, SUM, AVG, MIN, and MAX."}
+]

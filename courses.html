@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block title %}Courses - PrepPilot AI{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <div>
+        <h2>Choose a Course</h2>
+        <p class="text-muted-light">Pick a topic to start your AI-powered mock interview</p>
+    </div>
+</div>
+
+<div class="courses-grid">
+    {% for key, topic in topics.items() %}
+    <a href="{{ url_for('interview', topic=key) }}" class="glass-card course-card">
+        <div class="course-icon" style="background: linear-gradient(135deg, {{ topic.color }}55, {{ topic.color }}22);">
+            <i class="bi {{ topic.icon }}" style="color: {{ topic.color }};"></i>
+        </div>
+        <h4>{{ topic.name }}</h4>
+        <p>10 curated questions with AI evaluation</p>
+        <span class="course-cta">Start Interview <i class="bi bi-arrow-right"></i></span>
+    </a>
+    {% endfor %}
+</div>
+{% endblock %}

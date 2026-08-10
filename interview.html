@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+{% block title %}{{ topic_name }} Interview - PrepPilot AI{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/interview.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <div>
+        <h2><i class="bi bi-robot"></i> {{ topic_name }} AI Interview</h2>
+        <p class="text-muted-light">Answer by typing or using your microphone. You get up to {{ max_attempts }} attempts per question.</p>
+    </div>
+    <div class="timer-box glass-card" id="timerBox">
+        <i class="bi bi-stopwatch-fill"></i> <span id="timerDisplay">00:00</span>
+    </div>
+</div>
+
+<div class="interview-progress-wrap">
+    <div class="progress interview-progress">
+        <div class="progress-bar" id="progressBar" role="progressbar" style="width: 0%;"></div>
+    </div>
+    <span id="progressLabel">Question 1 of {{ total_questions }}</span>
+</div>
+
+<div class="glass-card question-card" id="questionCard">
+    <div class="question-top">
+        <span class="q-number" id="qNumberBadge">Q1</span>
+        <span class="attempts-badge" id="attemptsBadge">Attempt 1 / {{ max_attempts }}</span>
+    </div>
+
+    <h3 id="questionText">Loading question...</h3>
+
+    <div class="mic-row">
+        <button class="mic-btn" id="micBtn" title="Click to speak your answer">
+            <i class="bi bi-mic-fill"></i>
+        </button>
+        <span class="mic-status" id="micStatus">Click the mic to speak, or type below</span>
+    </div>
+
+    <textarea id="answerBox" class="glass-input answer-textarea" rows="5" placeholder="Type your answer here..."></textarea>
+
+    <div class="action-row">
+        <button class="btn-gradient" id="submitBtn"><i class="bi bi-send-fill"></i> Submit Answer</button>
+        <button class="btn-outline-glass d-none" id="nextBtn"><i class="bi bi-arrow-right"></i> Next Question</button>
+    </div>
+
+    <div class="feedback-box d-none" id="feedbackBox">
+        <div class="feedback-header">
+            <h5>AI Feedback</h5>
+            <span class="score-pill" id="scorePill">0%</span>
+        </div>
+        <div class="feedback-grid">
+            <div><strong>Correctness:</strong> <span id="fbCorrectness"></span></div>
+            <div><strong>Grammar:</strong> <span id="fbGrammar"></span></div>
+            <div><strong>Confidence:</strong> <span id="fbConfidence"></span></div>
+        </div>
+        <p><strong>Suggestions:</strong> <span id="fbSuggestions"></span></p>
+        <div class="correct-answer-box d-none" id="correctAnswerBox">
+            <strong>Correct Answer:</strong>
+            <p id="correctAnswerText"></p>
+        </div>
+    </div>
+</div>
+
+<div class="glass-card loading-screen d-none" id="loadingScreen">
+    <img src="{{ url_for('static', filename='images/robot.png') }}" alt="AI thinking">
+    <p>AI is evaluating your answer...</p>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    const MAX_ATTEMPTS = {{ max_attempts }};
+    const TOTAL_QUESTIONS = {{ total_questions }};
+</script>
+<script src="{{ url_for('static', filename='js/interview.js') }}"></script>
+{% endblock %}

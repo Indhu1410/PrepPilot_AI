@@ -1,0 +1,12 @@
+[
+  {"id": 1, "question": "What is the difference between HTML elements and tags?", "answer": "A tag is the markup syntax like <p> used to define an element, while an element refers to the complete structure including the opening tag, content, and closing tag."},
+  {"id": 2, "question": "What are semantic HTML elements? Give examples.", "answer": "Semantic elements clearly describe their meaning to both browser and developer, examples include <header>, <nav>, <article>, <section>, and <footer>."},
+  {"id": 3, "question": "What is the difference between <div> and <span>?", "answer": "<div> is a block-level element used to group larger sections of content, while <span> is an inline element used to style small pieces of text or content."},
+  {"id": 4, "question": "What is the purpose of the DOCTYPE declaration?", "answer": "The DOCTYPE declaration tells the browser which version of HTML the page is written in so it renders the page in standards mode correctly."},
+  {"id": 5, "question": "What are data attributes in HTML?", "answer": "Data attributes, prefixed with data-, allow storing custom data on HTML elements that can be accessed via JavaScript or CSS."},
+  {"id": 6, "question": "What is the difference between id and class attributes?", "answer": "An id must be unique within a page and used to target a single element, while a class can be applied to multiple elements for shared styling."},
+  {"id": 7, "question": "What is the purpose of the alt attribute in an image tag?", "answer": "The alt attribute provides alternative text for an image, improving accessibility for screen readers and displaying when the image fails to load."},
+  {"id": 8, "question": "What are forms and input types in HTML5?", "answer": "Forms collect user input using the <form> element, and HTML5 introduced new input types like email, date, number, and range for better validation and UX."},
+  {"id": 9, "question": "What is the difference between HTML5 and older HTML versions?", "answer": "HTML5 introduced semantic tags, native audio/video support, canvas for graphics, local storage, and improved form validation compared to older versions."},
+  {"id": 10, "question": "What is the box model in HTML/CSS?", "answer": "The box model describes how content, padding, border, and margin surround every HTML element and determine its total rendered size."}
+]

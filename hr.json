@@ -1,0 +1,12 @@
+[
+  {"id": 1, "question": "Tell me about yourself.", "answer": "A good answer briefly covers your educational background, key skills, relevant experience, and career goals in a concise and confident manner."},
+  {"id": 2, "question": "What are your strengths and weaknesses?", "answer": "A good answer highlights genuine strengths relevant to the role and a real weakness paired with the steps you are taking to improve it."},
+  {"id": 3, "question": "Why do you want to work for our company?", "answer": "A good answer shows you have researched the company's mission and products, and connects your skills and values to what the company is trying to achieve."},
+  {"id": 4, "question": "Where do you see yourself in 5 years?", "answer": "A good answer shows ambition balanced with realism, describing growth within the field or company while staying open to opportunities."},
+  {"id": 5, "question": "Describe a challenge you faced and how you overcame it.", "answer": "A strong answer uses the STAR method: describing the Situation, Task, Action taken, and the positive Result achieved."},
+  {"id": 6, "question": "Why should we hire you?", "answer": "A good answer connects your unique combination of skills, experience, and attitude directly to the specific needs of the role."},
+  {"id": 7, "question": "How do you handle stress and pressure?", "answer": "A good answer describes specific coping strategies like prioritization, time management, and staying calm, supported by a real example."},
+  {"id": 8, "question": "What motivates you to do a good job?", "answer": "A good answer reflects genuine intrinsic motivators like learning, achievement, teamwork, or making an impact, rather than generic answers."},
+  {"id": 9, "question": "Describe your ideal work environment.", "answer": "A good answer aligns your preferences for collaboration, structure, and culture with what is realistically offered by the company."},
+  {"id": 10, "question": "Do you have any questions for us?", "answer": "A strong candidate always has thoughtful questions prepared about the role, team, or company culture to show genuine interest."}
+]
